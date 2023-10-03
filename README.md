@@ -1,7 +1,7 @@
 #User Authentication APIs using passport Laravel version 10.10  
 -install composer
 -install mysql and php8.1
--download project files using git pull with key specified
+-create new directory in your system and download project files using git pull with key specified
 #run the following commands
  >composer install
  >composer dump-autoload
