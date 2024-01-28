@@ -1,1 +1,7 @@
 *.sqlite*
+
+# Ignore logs
+storage/logs/
+
+# Ignore the .env file
+.env

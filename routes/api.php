@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\BookingController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 //to add new user.just remove this /signup route if you want to register new user by authenticated User.you may add User like in seeder etc
-Route::post('users/signup', [\App\Http\Controllers\UserController::class,'store']);
+
 //login route
 Route::post('login', [\App\Http\Controllers\AuthController::class,'login']);
 Route::middleware('auth:api')->group(function () { 
     //routes accessible for authenticated User
     Route::apiResource('users', \App\Http\Controllers\UserController::class);
+    Route::post('users/signup', [\App\Http\Controllers\UserController::class,'store']);
+    Route::apiResource('employees', EmployeeController::class);
+    Route::apiResource('bookings', BookingController::class);
+    
 });
 

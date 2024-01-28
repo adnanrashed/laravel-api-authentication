@@ -17,8 +17,8 @@ public function login(Request $request)
         'password' => 'required|string',
     ]);
 
-    if (\App\Auth::attempt($credentials)) {
-        $user = Auth::user();
+    if (auth()->attempt($credentials)) {
+        $user = auth()->user();
         $token = $user->createToken('UserToken')->accessToken;
 
         return response()->json(['message' => 'Login successful', 'user' => $user, 'access_token' => $token]);
